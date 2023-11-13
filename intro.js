@@ -92,6 +92,72 @@ console.log(typeof a);
 a = null;
 console.log(typeof a); // Returns object (old bug in JavaScript)
 
+/**
+ * undefined
+ *  a primitive type with only one value: undefined
+ *  the value of a variable that has not been explicitly assigned a value
+ *  similar to null being assigned to an instance variable in Java
+ */
+
+let c;
+console.log(typeof c);
+
 /**********************************************************
  * Conditionals and Boolean Expressions
  **********************************************************/
+
+/**
+ * all values have an implicit boolean value due to JavaScript's
+ * type coercion
+ */
+
+if (1 && "hello") {
+  console.log("1 and hello are true");
+}
+
+if (0 || "" || null || undefined) {
+  // 0, empty string, null, and undefined are not true
+} else {
+  console.log("0, empty string, null, and undefined are false");
+}
+
+/**
+ * variables of different types are converted to numbers for comparison
+ */
+
+if ("34" == 34) {
+  console.log("34 is converted to 34 and then compared to 34");
+}
+
+if (3 != true) {
+  console.log("true is converted to 1 and then compared to 3");
+}
+
+/**
+ * the strict equality operator (===) does not perform type coercion;
+ *  returns false if the types are different
+ *  most similar to Java's == operator
+ * recommended to use this operator instead of the equality operator
+ */
+
+if ("34" === 34) {
+  // Not equal because they are different types
+} else {
+  console.log(
+    "'34' is not strictly equal to 34 because they are different types"
+  );
+}
+
+/**
+ * Recommendations regarding null and undefined:
+ *  only use the strict equality and inequality operators (===, !==)
+ * comparison with the equality operator will, most likely, return
+ *  unexpected results
+ */
+
+if (a === null) {
+  console.log("a is null");
+}
+if (c === undefined) {
+  console.log("c is undefined");
+}
