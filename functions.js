@@ -53,6 +53,7 @@ average = (x, y) => (x + y) / 2;
 
 // if there are no parameters, use empty parentheses
 const hello = () => console.log("Hello world!");
+hello();
 
 // multi-line arrow functions must use curly brackets and the return keyword
 average = (x, y) => {
