@@ -14,14 +14,12 @@ async function getPlanets() {
     const db = client.db("sample_guides");
     const coll = db.collection("planets");
 
-    const cursor = coll.find();
+    const cursor = coll.find({
+      hasRings: true,
+      "surfaceTemperatureC.mean": { $gt: 150 },
+    });
 
-    const planets = [];
-    while (await cursor.hasNext()) {
-      const planet = await cursor.next();
-      if (planet.hasRings && planet.surfaceTemperatureC.mean > -150)
-        planets.push(planet);
-    }
+    const planets = await cursor.toArray();
 
     const planetsFormat = planets.map(
       (planet) =>
