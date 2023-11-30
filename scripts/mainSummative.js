@@ -1,7 +1,8 @@
 "use strict";
 
-const darkButton = document.querySelector("#dark");
-const lightButton = document.querySelector("#light");
+const query = document.querySelectorAll("button");
+const darkButton = query[0];
+const lightButton = query[1];
 
 const html = document.querySelector("html");
 const lis = document.querySelectorAll("li");
