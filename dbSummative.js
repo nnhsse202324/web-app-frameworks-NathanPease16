@@ -40,5 +40,3 @@ async function getPlanets() {
 }
 
 getPlanets();
-
-// Earth 3
